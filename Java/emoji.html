@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        #container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="number"] {
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #emojiContainer {
+            margin-top: 20px;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Emoji Counter</h1>
+        <label for="count">Enter a number:</label>
+        <input type="number" id="count" placeholder="Enter a number">
+        <br>
+        <button onclick="generateEmojis()">Generate Emojis</button>
+        <div id="emojiContainer"></div>
+    </div>
+
+    <script>
+        function generateEmojis() {
+            var count = parseInt(document.getElementById('count').value);
+
+            if (isNaN(count) || count <= 0) {
+                alert('Please enter a valid number.');
+                return;
+            }
+
+            var emojis = ['😀', '😁', '😂', '😃', '😄', '😅', '😆', '😇', '😈', '😉']; // Add more emojis as needed
+            var emojiContainer = document.getElementById('emojiContainer');
+            emojiContainer.innerHTML = '';
+
+            for (var i = 0; i < count; i++) {
+                var randomIndex = Math.floor(Math.random() * emojis.length);
+                var emoji = document.createElement('span');
+                emoji.textContent = emojis[randomIndex];
+                emojiContainer.appendChild(emoji);
+            }
+        }
+    </script>
+</body>
+
+</html>

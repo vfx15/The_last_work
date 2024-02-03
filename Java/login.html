@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Logout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        #container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Login and Logout</h1>
+        <div id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter your username">
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password">
+            <br>
+            <button onclick="login()">Login</button>
+        </div>
+        <div id="logoutForm" style="display: none;">
+            <p>Welcome <span id="loggedInUser"></span>!</p>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        var loggedInUser = null;
+
+        function login() {
+            var usernameInput = document.getElementById('username').value;
+            var passwordInput = document.getElementById('password').value;
+
+            // Здесь может быть ваша логика проверки данных, например, с базой данных пользователей
+            // В данном примере давайте просто сохраняем имя пользователя после успешной авторизации
+            loggedInUser = usernameInput;
+
+            // Скрываем форму входа, показываем форму выхода и приветствуем пользователя
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('logoutForm').style.display = 'block';
+            document.getElementById('loggedInUser').textContent = loggedInUser;
+        }
+
+        function logout() {
+            // Очищаем имя пользователя и возвращаемся к форме входа
+            loggedInUser = null;
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('logoutForm').style.display = 'none';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        }
+    </script>
+</body>
+
+</html>

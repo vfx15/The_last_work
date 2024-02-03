@@ -1,0 +1,127 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chessboard Generator</title>
+    <style>
+        .board {
+            display: flex;
+            flex-wrap: wrap;
+            width: 400px;
+            border: 2px solid black;
+        }
+
+        .square {
+            width: 50px;
+            height: 50px;
+        }
+
+        .black {
+            background-color: black;
+        }
+
+        .white {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Chessboard Generator</h1>
+        <label for="size">Enter board size:</label>
+        <input type="number" id="size" min="2" max="10" value="8">
+        <button onclick="generateBoard()">Generate Board</button>
+        <div id="board" class="board"></div>
+    </div>
+
+    <script>
+        function generateBoard() {
+            var size = document.getElementById('size').value;
+            var board = document.getElementById('board');
+            board.innerHTML = '';
+
+            for (var i = 0; i < size; i++) {
+                for (var j = 0; j < size; j++) {
+                    var square = document.createElement('div');
+                    square.classList.add('square');
+                    if ((i + j) % 2 === 0) {
+                        square.classList.add('white');
+                    } else {
+                        square.classList.add('black');
+                    }
+                    board.appendChild(square);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chessboard Builder</title>
+    <style>
+        .board {
+            display: flex;
+            flex-wrap: wrap;
+            width: 400px;
+        }
+
+        .square {
+            width: 50px;
+            height: 50px;
+        }
+
+        .white {
+            background-color: #f0d9b5;
+        }
+
+        .black {
+            background-color: #b58863;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Chessboard Builder</h1>
+        <label for="size">Enter the size of the chessboard:</label>
+        <input type="number" id="size" placeholder="Enter the size">
+        <button onclick="buildChessboard()">Build Chessboard</button>
+        <div id="board"></div>
+    </div>
+
+    <script>
+        function buildChessboard() {
+            var size = parseInt(document.getElementById('size').value);
+            var board = document.getElementById('board');
+            board.innerHTML = '';
+
+            for (var i = 0; i < size; i++) {
+                var row = document.createElement('div');
+                row.className = 'board';
+
+                for (var j = 0; j < size; j++) {
+                    var square = document.createElement('div');
+                    square.className = 'square';
+                    if ((i + j) % 2 === 0) {
+                        square.className += ' white';
+                    } else {
+                        square.className += ' black';
+                    }
+                    row.appendChild(square);
+                }
+                board.appendChild(row);
+            }
+        }
+    </script>
+</body>
+
+</html>

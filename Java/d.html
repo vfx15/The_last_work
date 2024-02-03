@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Assessment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        #container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        select {
+            padding: 8px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Knowledge Assessment</h1>
+        <label for="knowledgeLevel">Select your knowledge level:</label>
+        <br>
+        <select id="knowledgeLevel">
+            <option value="0">0 (No knowledge)</option>
+            <option value="1">1 (Beginner)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 (Good)</option>
+            <option value="11">11 (Master)</option>
+            <option value="12">12 (Genius)</option>
+        </select>
+        <br>
+        <button onclick="submitRating()">Submit Rating</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function submitRating() {
+            var knowledgeLevel = parseInt(document.getElementById('knowledgeLevel').value);
+            var resultDiv = document.getElementById('result');
+
+            if (knowledgeLevel >= 0 && knowledgeLevel <= 12) {
+                var ratingText = '';
+
+                switch (knowledgeLevel) {
+                    case 0:
+                        ratingText = 'No knowledge';
+                        break;
+                    case 1:
+                        ratingText = 'Bad';
+                        break;
+                    case 2:
+                        ratingText = 'Bad';
+                        break;
+                    case 3:
+                        ratingText = 'Bad';
+                        break;
+                    case 4:
+                        ratingText = 'Bad';
+                        break;
+                    case 5:
+                        ratingText = 'Bad';
+                        break;
+                    case 6:
+                        ratingText = 'Not bad';
+                        break;
+                    case 7:
+                        ratingText = 'Not bad';
+                        break;
+                    case 8:
+                        ratingText = 'Not bad';
+                        break;
+                    case 9:
+                        ratingText = 'Good';
+                        break;
+                    case 10:
+                        ratingText = 'Good';
+                        break;
+                    case 11:
+                        ratingText = 'Master';
+                        break;
+                    case 12:
+                        ratingText = 'Genius';
+                        break;
+                    default:
+                        ratingText = 'Level ' + knowledgeLevel;
+                        break;
+                }
+
+                resultDiv.textContent = 'Your knowledge level is: ' + ratingText;
+                resultDiv.style.color = 'green';
+            } else {
+                resultDiv.textContent = 'Invalid knowledge level';
+                resultDiv.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+
+</html>

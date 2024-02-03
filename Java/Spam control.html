@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        #container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            margin-bottom: 10px;
+            width: 300px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Spam Checker</h1>
+        <label for="textInput">Enter your text:</label>
+        <br>
+        <input type="text" id="textInput" placeholder="Enter your text">
+        <br>
+        <button onclick="checkSpam()">Check for Spam</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function checkSpam() {
+            var textInput = document.getElementById('textInput').value.toLowerCase();
+
+            var spamWords = ['spam', 'buy now', 'limited offer', 'click here', 'free', 'earn money'];
+
+            var isSpam = false;
+            for (var i = 0; i < spamWords.length; i++) {
+                if (textInput.includes(spamWords[i])) {
+                    isSpam = true;
+                    break;
+                }
+            }
+
+            var resultElement = document.getElementById('result');
+            if (isSpam) {
+                resultElement.textContent = 'The text contains spam!';
+                resultElement.style.color = 'red';
+            } else {
+                resultElement.textContent = 'The text is clean!';
+                resultElement.style.color = 'green';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci number</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        #container {
+            text-align: center;
+        }
+
+        input[type="number"] {
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Fibonacci number</h1>
+        <input type="number" id="inputNumber" placeholder="Введите порядковый номер">
+        <button onclick="calculateFibonacci()">Get the Fibonacci number</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculateFibonacci() {
+            var number = parseInt(document.getElementById('inputNumber').value);
+
+            if (isNaN(number) || number < 1) {
+                document.getElementById('result').innerText = 'Пожалуйста, введите положительное целое число.';
+                return;
+            }
+
+            var fibonacciNumber = fibonacci(number);
+            document.getElementById('result').innerText = 'Число Фибоначчи с порядковым номером ' + number + ' равно ' + fibonacciNumber + '.';
+        }
+
+        function fibonacci(n) {
+            var a = 1, b = 0, temp;
+
+            while (n >= 0) {
+                temp = a;
+                a = a + b;
+                b = temp;
+                n--;
+            }
+
+            return b;
+        }
+    </script>
+</body>
+
+</html>

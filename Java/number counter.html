@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation of numbers and amounts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        #container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="number"] {
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Calculation of numbers and amounts</h1>
+        <input type="number" id="inputNumber" placeholder="Write a number">
+        <button onclick="calculate()">Вычислить</button>
+        <p id="digitsCount"></p>
+        <p id="digitsSum"></p>
+    </div>
+
+    <script>
+        function calculate() {
+            var number = document.getElementById('inputNumber').value;
+
+            var numberOfDigits = number.toString().length;
+            var sumOfDigits = sumDigits(number);
+
+            document.getElementById('digitsCount').innerText = 'Number consists of ' + numberOfDigits + ' symbols.';
+            document.getElementById('digitsSum').innerText = 'Sum of numbers equals ' + sumOfDigits + '.';
+        }
+
+        function sumDigits(number) {
+            var sum = 0;
+            var digits = number.toString().split('').map(Number);
+
+            for (var i = 0; i < digits.length; i++) {
+                sum += digits[i];
+            }
+
+            return sum;
+        }
+    </script>
+</body>
+
+</html>

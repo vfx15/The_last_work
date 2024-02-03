@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate rectangle area and perimeter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        #container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="number"] {
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Calculate rectangle area and perimeter</h1>
+        <label for="length">Lenght:</label>
+        <input type="number" id="length" placeholder="Введите длину">
+        <br>
+        <label for="width">Width:</label>
+        <input type="number" id="width" placeholder="Введите ширину">
+        <br>
+        <button onclick="calculate()">Determinate</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            var length = parseFloat(document.getElementById('length').value);
+            var width = parseFloat(document.getElementById('width').value);
+
+            if (isNaN(length) || isNaN(width) || length <= 0 || width <= 0) {
+                document.getElementById('result').innerHTML = 'Please enter correct values for length and width.';
+                return;
+            }
+
+            var area = length * width;
+            var perimeter = 2 * (length + width);
+
+            document.getElementById('result').innerHTML = 'Rectangle Area: ' + area.toFixed(2) + '<br>' +
+                'Rectangle perimeter: ' + perimeter.toFixed(2);
+        }
+    </script>
+</body>
+
+</html>

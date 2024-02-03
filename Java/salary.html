@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Determination of the highest salary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        #container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="number"] {
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Determination of the highest salary</h1>
+        <label for="salary1">Salary 1:</label>
+        <input type="number" id="salary1" placeholder="Enter the first salary">
+        <br>
+        <label for="salary2">Salary 2:</label>
+        <input type="number" id="salary2" placeholder="Enter the second salary">
+        <br>
+        <label for="salary3">Salary 3:</label>
+        <input type="number" id="salary3" placeholder="Enter the third salary">
+        <br>
+        <button onclick="findMaxSalary()">Find the highest salary</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function findMaxSalary() {
+            var salary1 = parseFloat(document.getElementById('salary1').value);
+            var salary2 = parseFloat(document.getElementById('salary2').value);
+            var salary3 = parseFloat(document.getElementById('salary3').value);
+
+            if (isNaN(salary1) || isNaN(salary2) || isNaN(salary3)) {
+                document.getElementById('result').innerText = 'Please enter the correct salary values.';
+                return;
+            }
+
+            var maxSalary = Math.max(salary1, salary2, salary3);
+
+            document.getElementById('result').innerText = 'Highest salary: ' + maxSalary;
+        }
+    </script>
+</body>
+
+</html>

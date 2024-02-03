@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliment Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        #container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="number"] {
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #complimentList {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Compliment Generator</h1>
+        <label for="count">Enter a number:</label>
+        <input type="number" id="count" placeholder="Enter a number">
+        <br>
+        <button onclick="generateCompliments()">Generate Compliments</button>
+        <div id="complimentList"></div>
+    </div>
+
+    <script>
+        function generateCompliments() {
+            var count = parseInt(document.getElementById('count').value);
+
+            if (isNaN(count) || count <= 0) {
+                alert('Please enter a valid number.');
+                return;
+            }
+
+            var compliments = [
+                'You are amazing!',
+                'Your smiles light up the world!',
+                'You are incredibly talented!',
+                'Your energy is contagious!',
+                'You exude positivity!',
+                'You are a shining star!',
+                'Your mood always lifts those around you!',
+                'You are worthy of admiration!',
+                'You look fantastic!',
+                'Your kindness is incredible!'
+            ];
+
+            var complimentList = document.getElementById('complimentList');
+            complimentList.innerHTML = '';
+
+            for (var i = 0; i < count; i++) {
+                var randomIndex = Math.floor(Math.random() * compliments.length);
+                var compliment = compliments[randomIndex];
+                var complimentItem = document.createElement('p');
+                complimentItem.textContent = compliment;
+                complimentList.appendChild(complimentItem);
+            }
+        }
+    </script>
+</body>
+
+</html>
