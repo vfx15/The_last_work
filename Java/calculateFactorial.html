@@ -19,10 +19,10 @@
 </head>
 
 <body>
-    <h1>Факториал числа</h1>
-    <label for="numberInput">Введите число:</label>
+    <h1>Calculate Factorial</h1>
+    <label for="numberInput">Put a number:</label>
     <input type="number" id="numberInput">
-    <button onclick="calculateFactorial()">Найти факториал</button>
+    <button onclick="calculateFactorial()">Find</button>
     <div id="result"></div>
 
     <script>
@@ -39,7 +39,7 @@
 
             // Если введено 0 или 1, факториал равен 1
             if (numberInput == 0 || numberInput == 1) {
-                result.innerHTML = 'Факториал числа ' + numberInput + ' равен 1';
+                result.innerHTML = 'Factorial ' + numberInput + ' = 1';
                 return;
             }
 
@@ -48,7 +48,7 @@
                 factorial *= i;
             }
 
-            result.innerHTML = 'Факториал числа ' + numberInput + ' равен ' + factorial;
+            result.innerHTML = 'Factorial ' + numberInput + ' = ' + factorial;
         }
     </script>
 </body>
